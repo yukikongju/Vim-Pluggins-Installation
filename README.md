@@ -54,5 +54,12 @@ In vim, execute:
 ```
 :PlugInstall
 ```
+# Basic Vim Command
 
+Ressources:
+1. Vim Cheat Sheet: https://vim.rtorr.com/
+
+# Using Some Pluggins
+
+[ to do ]
 
