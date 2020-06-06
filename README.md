@@ -26,25 +26,16 @@ Add Plugin inside plug#begin() and plug#end()
 
 ```
  plug#begin() 
- 
-      Plug 'airblade/vim-gitgutter'
-      Plug 'editorconfig/editorconfig-vim'
-      Plug 'itchyny/lightline.vim'
-      Plug 'junegunn/fzf'
-      Plug 'junegunn/fzf.vim'
-      Plug 'mattn/emmet-vim'
-      Plug 'scrooloose/nerdtree'
-      Plug 'terryma/vim-multiple-cursors'
-      Plug 'tpope/vim-eunuch'
-      Plug 'tpope/vim-surround'
-      Plug 'w0rp/ale'
-      Plug 'tpope/vim-fugitive'
-      Plug 'scrooloose/syntastic'
-      Plug 'vim-airline/vim-airline'
-      Plug 'scrooloose/nerdcommenter'
-      Plug 'altercation/vim-colors-solarized'
-      Plug 'majutsushi/tagbar'
- 
+
+	 Plug 'scrooloose/nerdtree' " show folders on the side
+	 Plug 'altercation/vim-colors-solarized' " colorscheme for text
+	 Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
+	 Plug 'airblade/vim-gitgutter' " show modified lines in git
+	 Plug 'itchyny/lightline.vim' " colorscheme for vim modes
+	 Plug 'scrooloose/nerdcommenter' " Change indentation behavior
+	 Plug 'tpope/vim-fugitive' " Git Command
+	 Plug 'neoclide/coc.nvim'
+
  plug#end()
 ```
 ### 5. Install Plugins
@@ -58,8 +49,18 @@ In vim, execute:
 
 Ressources:
 1. Vim Cheat Sheet: https://vim.rtorr.com/
+2. Vim Cheat Sheet: https://www.keycdn.com/blog/vim-commands 
+
+# Some Tutorials
+1. Vim Movements by The Primagen: https://www.youtube.com/watch?v=QN4fuSsWTbA&t=307s
+
 
 # Using Some Pluggins
 
+1. PyDiction: http://rkulla.github.io/pydiction/
+2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
+3. Intellident Completion Coc: https://kimpers.com/vim-intelligent-autocompletion/
+
 [ to do ]
+
 
