@@ -1,4 +1,4 @@
-# Installation
+# Initializing vimrc file 
 
 ### 1. Install Vim: https://www.vim.org/download.php
 
@@ -53,7 +53,7 @@ Ressources:
 
 # Some Tutorials
 1. Vim Movements by The Primagen: https://www.youtube.com/watch?v=QN4fuSsWTbA&t=307s
-
+2. Vim Screencast by Greg Hurell: https://www.youtube.com/watch?v=MAHC9eZbx4o&list=PLwJS-G75vM7kFO-yUkyNphxSIdbi_1NKX
 
 # Using Some Pluggins
 
