@@ -50,17 +50,30 @@ In vim, execute:
 Ressources:
 1. Vim Cheat Sheet: https://vim.rtorr.com/
 2. Vim Cheat Sheet: https://www.keycdn.com/blog/vim-commands 
+3. Vimways: https://vimways.org/2018/
 
-# Some Tutorials
+# Some Tutorials on Basic Vim Commands
 1. Vim Movements by The Primagen: https://www.youtube.com/watch?v=QN4fuSsWTbA&t=307s
 2. Vim Screencast by Greg Hurell: https://www.youtube.com/watch?v=MAHC9eZbx4o&list=PLwJS-G75vM7kFO-yUkyNphxSIdbi_1NKX
 
-# Using Some Pluggins
+# Installing Some Pluggins
 
 1. PyDiction: http://rkulla.github.io/pydiction/
 2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
 3. Intellident Completion Coc: https://kimpers.com/vim-intelligent-autocompletion/
 
-[ to do ]
+# Using some Pluggins
+
+### NERDTree
+
+```
+Opening the Menu: m
+```
+
+### NERDCommenter
+```
+Comment a line: <leader> cc
+```
+
 
 
