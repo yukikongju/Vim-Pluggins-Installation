@@ -1,4 +1,4 @@
-# Initializing vimrc file 
+## Initializing vimrc file 
 
 ### 1. Install Vim: https://www.vim.org/download.php
 
@@ -45,16 +45,6 @@ In vim, execute:
 ```
 :PlugInstall
 ```
-# Basic Vim Command
-
-Ressources:
-1. Vim Cheat Sheet: https://vim.rtorr.com/
-2. Vim Cheat Sheet: https://www.keycdn.com/blog/vim-commands 
-3. Vimways: https://vimways.org/2018/
-
-# Some Tutorials on Basic Vim Commands
-1. Vim Movements by The Primagen: https://www.youtube.com/watch?v=QN4fuSsWTbA&t=307s
-2. Vim Screencast by Greg Hurell: https://www.youtube.com/watch?v=MAHC9eZbx4o&list=PLwJS-G75vM7kFO-yUkyNphxSIdbi_1NKX
 
 # Installing Some Pluggins
 
@@ -62,18 +52,11 @@ Ressources:
 2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
 3. Intellident Completion Coc: https://kimpers.com/vim-intelligent-autocompletion/
 
-# Using some Pluggins
+## Managing Dotfiles
 
-### NERDTree
+Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
 
-```
-Opening the Menu: m
-```
-
-### NERDCommenter
-```
-Comment a line: <leader> cc
-```
-
+Creating a symbolic link to your new file location:
+https://superuser.com/questions/327792/how-to-change-the-default-location-of-vimrc-to-inside-vim
 
 
