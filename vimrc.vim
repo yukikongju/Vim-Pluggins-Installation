@@ -18,7 +18,7 @@
 
 " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
-  Plug 'davidhalter/jedi' " Python autocomplete
+  " Plug 'davidhalter/jedi' " Python autocomplete
   Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
 
@@ -140,11 +140,15 @@
   nmap gt :tabnext<CR>
   nmap gT :tabprevious<CR>
 
+" vimrc shortcut
+  nnoremap <leader>ev :vsplit $MYVIMRC<cr>       " edit vimrc
+  nnoremap <leader>rv :source $MYVIMRC<cr>       " reload vimrv
 
 " NERDTree Configs
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  nmap <leader>nt :NERDTreeToggle<CR>
 
 " vim-rainbow Configs
   let g:rainbow_active = 1
@@ -159,17 +163,24 @@
 " coc.nvim Configs
   let g:coc_disable_startup_warning = 1
   let g:coc_global_extensions = [
-		\ 'coc-snippets',
-		\ 'coc-python',
-		\ 'coc-tsserver',
+		\ 'coc-css',
 		\ 'coc-emoji',
-		\ 'coc-css',
-		\ 'coc-json',
 		\ 'coc-html',
-		\ 'coc-css',
 		\ 'coc-java',
+		\ 'coc-jedi',
+		\ 'coc-json',
+		\ 'coc-python',
 		\ 'coc-prettier',
+		\ 'coc-snippets',
 		\ ]
+
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"        " autocomplete with tab
+  nmap <silent> gd <Plug>(coc-definition)        " GoTo code navigation.
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references) inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  nnoremap <silent> K :call <SID>show_documentation()<CR>  " Use K to show documentation in preview window.
 
 " vim-multiple-cursor Configs
   let g:multi_cursor_start_word_key      = '<C-n>'
@@ -217,14 +228,20 @@
 
 " vim-closetag Configs
   let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+  let g:closetag_filetypes = 'html,xhtml,phtml'
+  let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+  let g:closetag_emptyTags_caseSensitive = 1
+  let g:closetag_regions = {
+	  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+	  \ 'javascript.jsx': 'jsxRegion',
+	  \ }
+  let g:closetag_shortcut = '>'
+  let g:closetag_close_shortcut = '<leader>>'
+
+
+
+
+
+
 
