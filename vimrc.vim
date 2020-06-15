@@ -8,6 +8,7 @@
 
 " utils
   Plug 'scrooloose/nerdtree'
+  Plug 'vimwiki/vimwiki' " create linked text files and auto number
 
 " colorscheme & syntax highlight
   Plug 'altercation/vim-colors-solarized' " colorscheme for text
@@ -20,6 +21,7 @@
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
   " Plug 'davidhalter/jedi' " Python autocomplete
   Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
+  Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
 
 " git
@@ -61,6 +63,11 @@
   set autoindent
   set noshiftround
 
+" Spelling
+  " set spell
+  " set spelllang=eng
+
+
 " Swapfiles
   set nobackup
   set nowritebackup
@@ -88,7 +95,9 @@
   set encoding=utf-8
 
 " Folding
-
+  set foldmethod=syntax
+  set foldlevelstart=1
+  set foldnestmax=2
 
 " Buffers
   set hidden
@@ -103,7 +112,10 @@
   set ignorecase
   set smartcase
   set showmatch
-  map <leader><space> :let @/=''<cr> " clear search
+  " map <leader><space> :let @/=''<cr> " clear search
+  " nnoremap <leader><space> :noh<cr>
+  nnoremap <esc><esc> :noh<return>
+
 
 " Colorscheme
   syntax enable
@@ -134,21 +146,22 @@
   nmap <leader>j :wincmd j<CR>
   nmap <leader>k :wincmd k<CR>
   nmap <leader>l :wincmd l<CR>
-  nmap <leader>u :UndotreeShow<CR>
+  " nmap <leader>u :UndotreeShow<CR>
 
 " remap tabs change
   nmap gt :tabnext<CR>
   nmap gT :tabprevious<CR>
+  " nmap nt :tabnew<CR>
 
 " vimrc shortcut
-  nnoremap <leader>ev :vsplit $MYVIMRC<cr>       " edit vimrc
+  nnoremap <leader>ev :tabnew $MYVIMRC<cr>       " edit vimrc
   nnoremap <leader>rv :source $MYVIMRC<cr>       " reload vimrv
 
 " NERDTree Configs
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  nmap <leader>nt :NERDTreeToggle<CR>
+  nmap <leader>m :NERDTreeToggle<CR>
 
 " vim-rainbow Configs
   let g:rainbow_active = 1
@@ -169,18 +182,33 @@
 		\ 'coc-java',
 		\ 'coc-jedi',
 		\ 'coc-json',
+		\ 'coc-markdownlint',
 		\ 'coc-python',
 		\ 'coc-prettier',
 		\ 'coc-snippets',
+		\ 'coc-todolist',
+		\ 'coc-vimlsp',
+		\ 'coc-yank',
 		\ ]
 
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"        " autocomplete with tab
+  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\vTab>"        " autocomplete with tab
   nmap <silent> gd <Plug>(coc-definition)        " GoTo code navigation.
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references) inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
   nnoremap <silent> K :call <SID>show_documentation()<CR>  " Use K to show documentation in preview window.
+
+  " use <tab> for trigger completion and navigate to the next complete item
+  function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+  
+  inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
 " vim-multiple-cursor Configs
   let g:multi_cursor_start_word_key      = '<C-n>'
@@ -193,7 +221,7 @@
   let g:multi_cursor_quit_key            = '<Esc>'
 
 " lightline Configs
-    let g:lightline = {
+  let g:lightline = {
 		     \ 'colorscheme': 'solarized',
 		   \ 'active': {
 		   \   'left': [ [ 'mode', 'paste' ],
@@ -208,8 +236,8 @@
 " vim-gitgutter Configs
  " let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
   
-  nmap ]h <Plug>(GitGutterNextHunk)
-  nmap [h <Plug>(GitGutterPrevHunk)
+  " nmap ]h <Plug>(GitGutterNextHunk)
+  " nmap [h <Plug>(GitGutterPrevHunk)
 
 " nerdtree-git-plugin Configs
   let g:NERDTreeShowIgnoredStatus = 1
@@ -238,10 +266,4 @@
 	  \ }
   let g:closetag_shortcut = '>'
   let g:closetag_close_shortcut = '<leader>>'
-
-
-
-
-
-
 
