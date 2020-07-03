@@ -1,7 +1,8 @@
 " Pluggins Configs
   set nocompatible
   filetype off
-  filetype plugin indent on
+  " filetype plugin indent on
+  filetype plugin on
 
 " Pluggins
   call plug#begin('~/.vim/plugged')
@@ -14,7 +15,7 @@
   Plug 'altercation/vim-colors-solarized' " colorscheme for text
   Plug 'itchyny/lightline.vim' " colorscheme for vim modes
   Plug 'scrooloose/nerdcommenter' " Change indentation behavior
-  Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
+ " Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
   Plug 'terryma/vim-multiple-cursors' " edit multiple line simultaneously
 
 " autocomplete
@@ -23,6 +24,7 @@
   Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
   Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
+  Plug 'vim-scripts/c.vim' " c/c++ ide 
 
 " git
   Plug 'tpope/vim-fugitive' "generate page to view commit message
@@ -176,6 +178,8 @@
 " coc.nvim Configs
   let g:coc_disable_startup_warning = 1
   let g:coc_global_extensions = [
+		\ 'coc-clangd',
+		\ 'coc-cmake',
 		\ 'coc-css',
 		\ 'coc-emoji',
 		\ 'coc-html',
