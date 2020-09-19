@@ -10,6 +10,9 @@
 " utils
   Plug 'scrooloose/nerdtree'
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
+  Plug 'lfos/calcurse' "Calendar scheduling app
+  Plug 'vifm/vifm' " File mange with curses interface
+  Plug 'junegunn/fzf' "command line fuzzy finder"
 
 " colorscheme & syntax highlight
   Plug 'altercation/vim-colors-solarized' " colorscheme for text
@@ -33,6 +36,8 @@
 
 " html
   Plug 'alvan/vim-closetag' " use > to create closing tag
+
+
 
   call plug#end()
 
@@ -69,6 +74,8 @@
   " set spell
   " set spelllang=eng
 
+" activate Mouse
+  set mouse=a
 
 " Swapfiles
   set nobackup
@@ -100,6 +107,7 @@
   set foldmethod=syntax
   set foldlevelstart=1
   set foldnestmax=2
+let g:markdown_folding=11
 
 " Buffers
   set hidden
@@ -126,8 +134,11 @@
   let g:solarized_termcolors=256
   let g:solarized_termtrans=1
   colorscheme solarized 
-  let g:solarized_contrast = 'normal'
-  let g:solarized_degrade = 0
+  highlight Normal ctermbg=NONE
+  highlight nonText ctermbg=NONE
+  " colorscheme delek
+  " let g:solarized_contrast = 'normal'
+  " let g:solarized_degrade = 0
 
 " Choose Leader
   let mapleader="," "choose leader
@@ -154,6 +165,10 @@
   nmap gt :tabnext<CR>
   nmap gT :tabprevious<CR>
   " nmap nt :tabnew<CR>
+
+"  remapping replace
+  " nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>    " local replace
+  " nnoremap gR gD:%s/<C-R>///gc<left><left><left>        " For global replace
 
 " vimrc shortcut
   nnoremap <leader>ev :tabnew $MYVIMRC<cr>       " edit vimrc
@@ -192,6 +207,7 @@
 		\ 'coc-snippets',
 		\ 'coc-todolist',
 		\ 'coc-vimlsp',
+		\ 'coc-word',
 		\ 'coc-yank',
 		\ ]
 
@@ -270,4 +286,19 @@
 	  \ }
   let g:closetag_shortcut = '>'
   let g:closetag_close_shortcut = '<leader>>'
+
+" vim wiki
+  " let g:vimwiki_folding='syntax' "list, '', expr, syntax, 
+  let g:vimwiki_folding='expr' "list, '', expr, syntax, 
+  let g:vimwiki_list = [{'auto_diary_index': 1}] " autocomplete diary index
+  " nnoremap  <leader>w<leader>w " create new diary note for the day
+  " nnoremap  <leader>wi " show all diary entries
+  " nnoremap  <leader>w<leader>i " update entries
+  " let g:vimwiki_list = [
+  "                       \{'path': '~/Documents/VimWiki/personal.wiki'},
+  "                       \{'path': '~/Documents/VimWiki/tech.wiki'}
+                \]
+  " let g:vimwiki_list = [{'path': '~/vimwiki/',
+  "                     \ 'syntax': 'markdown', 'ext': '.wiki'}]
+
 
