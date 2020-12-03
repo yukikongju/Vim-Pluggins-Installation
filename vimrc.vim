@@ -12,14 +12,22 @@
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
   Plug 'lfos/calcurse' "Calendar scheduling app
   Plug 'vifm/vifm' " File mange with curses interface
-  Plug 'junegunn/fzf' "command line fuzzy finder"
-
+  Plug 'christoomey/vim-tmux-navigator' 
+  Plug 'itchyny/calendar.vim' " calendar
+  Plug 'junegunn/fzf' " command line fuzzy finder"
+  " Plug 'taglist.vim' " view variables, functions with :Tlist
+  " Plug 'vim-scripts/taglist.vim'
+  " Plug 'yegappan/taglist'
+  
 " colorscheme & syntax highlight
   Plug 'altercation/vim-colors-solarized' " colorscheme for text
   Plug 'itchyny/lightline.vim' " colorscheme for vim modes
   Plug 'scrooloose/nerdcommenter' " Change indentation behavior
  " Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
+  Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
   Plug 'terryma/vim-multiple-cursors' " edit multiple line simultaneously
+  " Plug 'skammer/vim-css-color' " Highlight colors in css files
+  Plug 'ap/vim-css-color' " Highlight colors in css files
 
 " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
@@ -28,6 +36,7 @@
   Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
   Plug 'vim-scripts/c.vim' " c/c++ ide 
+  Plug 'rust-lang/rust.vim' " Rust autocompletion
 
 " git
   Plug 'tpope/vim-fugitive' "generate page to view commit message
@@ -287,6 +296,19 @@ let g:markdown_folding=11
   let g:closetag_shortcut = '>'
   let g:closetag_close_shortcut = '<leader>>'
 
+
+  " T-mux 
+  let g:tmux_navigator_no_mappings = 1
+  nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
+  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+  " Write all buffers before navigating from Vim to tmux pane
+  " let g:tmux_navigator_save_on_switch = 2
+  " Disable tmux navigator when zooming the Vim pane
+  let g:tmux_navigator_disable_when_zoomed = 1
+
 " vim wiki
   " let g:vimwiki_folding='syntax' "list, '', expr, syntax, 
   let g:vimwiki_folding='expr' "list, '', expr, syntax, 
@@ -301,4 +323,22 @@ let g:markdown_folding=11
   " let g:vimwiki_list = [{'path': '~/vimwiki/',
   "                     \ 'syntax': 'markdown', 'ext': '.wiki'}]
 
+" vim.calendar
+  " let g:calendar_task_delete = 1
 
+" TagList options
+  " let Tlist_Close_On_Select = 1 "close taglist window once we selected something
+  " let Tlist_Exit_OnlyWindow = 1 "if taglist window is the only window left, exit vim
+  " let Tlist_Show_Menu = 1 "show Tags menu in gvim
+  " let Tlist_Show_One_File = 1 "show tags of only one file
+  " let Tlist_GainFocus_On_ToggleOpen = 1 "automatically switch to taglist window
+  " let Tlist_Highlight_Tag_On_BufEnter = 1 "highlight current tag in taglist window
+  " let Tlist_Process_File_Always = 1 "even without taglist window, create tags file, required for displaying tag in statusline
+  " let Tlist_Use_Right_Window = 1 "display taglist window on the right
+  " let Tlist_Display_Prototype = 1 "display full prototype instead of just function name
+  " " "let Tlist_Ctags_Cmd = /path/to/exuberant/ctags
+
+  " nnoremap <F5> :TlistToggle
+  " nnoremap <F6> :TlistShowPrototype
+
+  " set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
