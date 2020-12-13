@@ -11,11 +11,12 @@
   Plug 'scrooloose/nerdtree'
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
   Plug 'lfos/calcurse' "Calendar scheduling app
-  Plug 'vifm/vifm' " File mange with curses interface
-  Plug 'christoomey/vim-tmux-navigator' 
-  Plug 'itchyny/calendar.vim' " calendar
+  " Plug 'vifm/vifm' " File mange with curses interface
+  " Plug 'christoomey/vim-tmux-navigator' 
+  " Plug 'itchyny/calendar.vim' " calendar
   Plug 'junegunn/fzf' " command line fuzzy finder"
   " Plug 'taglist.vim' " view variables, functions with :Tlist
+  Plug 'mbbill/undotree' " view all undo history
   " Plug 'vim-scripts/taglist.vim'
   " Plug 'yegappan/taglist'
   
@@ -23,9 +24,10 @@
   Plug 'altercation/vim-colors-solarized' " colorscheme for text
   Plug 'itchyny/lightline.vim' " colorscheme for vim modes
   Plug 'scrooloose/nerdcommenter' " Change indentation behavior
+  Plug 'morhetz/gruvbox' " grubbox color scheme
  " Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
   Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
-  Plug 'terryma/vim-multiple-cursors' " edit multiple line simultaneously
+  " Plug 'terryma/vim-multiple-cursors' " edit multiple line simultaneously
   " Plug 'skammer/vim-css-color' " Highlight colors in css files
   Plug 'ap/vim-css-color' " Highlight colors in css files
 
@@ -36,7 +38,7 @@
   Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
   Plug 'vim-scripts/c.vim' " c/c++ ide 
-  Plug 'rust-lang/rust.vim' " Rust autocompletion
+  " Plug 'rust-lang/rust.vim' " Rust autocompletion
 
 " git
   Plug 'tpope/vim-fugitive' "generate page to view commit message
@@ -76,6 +78,7 @@
   set shiftwidth=2
   set softtabstop=4
   set smarttab
+  " set smartindent
   set autoindent
   set noshiftround
 
@@ -84,7 +87,7 @@
   " set spelllang=eng
 
 " activate Mouse
-  set mouse=a
+  " set mouse=a
 
 " Swapfiles
   set nobackup
@@ -104,7 +107,8 @@
   set showcmd
   set wildmenu
   set nostartofline
-  set signcolumn=no
+  " set signcolumn=no
+  set signcolumn=yes
 
 " Rendering
   set ttyfast
@@ -135,16 +139,16 @@ let g:markdown_folding=11
   " nnoremap <leader><space> :noh<cr>
   nnoremap <esc><esc> :noh<return>
 
-
 " Colorscheme
   syntax enable
   set t_Co=256
   set background=dark
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  colorscheme solarized 
-  highlight Normal ctermbg=NONE
-  highlight nonText ctermbg=NONE
+  " let g:solarized_termcolors=256
+  " let g:solarized_termtrans=1
+  " colorscheme solarized 
+  colorscheme gruvbox
+  " highlight Normal ctermbg=NONE
+  " highlight nonText ctermbg=NONE
   " colorscheme delek
   " let g:solarized_contrast = 'normal'
   " let g:solarized_degrade = 0
@@ -163,11 +167,13 @@ let g:markdown_folding=11
 " Remap Save Session
   nnoremap <leader>s :mksession<CR>
 
-" remap change split
+" remap change windows split quickly
   nmap <leader>h :wincmd h<CR>
   nmap <leader>j :wincmd j<CR>
   nmap <leader>k :wincmd k<CR>
   nmap <leader>l :wincmd l<CR>
+  nnoremap <silent> <leader>+ :vertical resize +5<CR>
+  nnoremap <silent> <leader>- :vertical resize +5<CR>
   " nmap <leader>u :UndotreeShow<CR>
 
 " remap tabs change
@@ -192,6 +198,9 @@ let g:markdown_folding=11
 " vim-rainbow Configs
   let g:rainbow_active = 1
 
+" Undotree Configs
+  nnoremap <leader>u :UndotreeShow<CR>
+
 " NERDCommenter Configs
   let g:NERDSpaceDelims = 1
   let g:NERDCompactSexyComs = 1
@@ -205,26 +214,30 @@ let g:markdown_folding=11
 		\ 'coc-clangd',
 		\ 'coc-cmake',
 		\ 'coc-css',
-		\ 'coc-emoji',
 		\ 'coc-html',
 		\ 'coc-java',
 		\ 'coc-jedi',
 		\ 'coc-json',
-		\ 'coc-markdownlint',
 		\ 'coc-python',
 		\ 'coc-prettier',
 		\ 'coc-snippets',
 		\ 'coc-todolist',
 		\ 'coc-vimlsp',
-		\ 'coc-word',
-		\ 'coc-yank',
 		\ ]
+
+		" \ 'coc-word',
+		" \ 'coc-markdownlint',
+		" \ 'coc-emoji',
+		" \ 'coc-yank',
 
   " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\vTab>"        " autocomplete with tab
   nmap <silent> gd <Plug>(coc-definition)        " GoTo code navigation.
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references) inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
 
   nnoremap <silent> K :call <SID>show_documentation()<CR>  " Use K to show documentation in preview window.
 
