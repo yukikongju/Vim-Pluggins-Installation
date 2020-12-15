@@ -11,10 +11,12 @@
   Plug 'scrooloose/nerdtree'
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
   Plug 'lfos/calcurse' "Calendar scheduling app
+  Plug 'honza/vim-snippets' " snippets for various languages
   " Plug 'vifm/vifm' " File mange with curses interface
   " Plug 'christoomey/vim-tmux-navigator' 
-  " Plug 'itchyny/calendar.vim' " calendar
+  Plug 'itchyny/calendar.vim' " calendar
   Plug 'junegunn/fzf' " command line fuzzy finder"
+  Plug 'junegunn/goyo.vim' " make vim cleaner
   " Plug 'taglist.vim' " view variables, functions with :Tlist
   Plug 'mbbill/undotree' " view all undo history
   " Plug 'vim-scripts/taglist.vim'
@@ -26,14 +28,15 @@
   Plug 'scrooloose/nerdcommenter' " Change indentation behavior
   Plug 'morhetz/gruvbox' " grubbox color scheme
  " Plug 'frazrepo/vim-rainbow' " make parenthesis and braket easier to read
-  Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
   " Plug 'terryma/vim-multiple-cursors' " edit multiple line simultaneously
   " Plug 'skammer/vim-css-color' " Highlight colors in css files
   Plug 'ap/vim-css-color' " Highlight colors in css files
 
 " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
+  " Plug 'ycm-core/YouCompleteMe' "you complete me autocomplete with linter"
   " Plug 'davidhalter/jedi' " Python autocomplete
+  Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
   Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
   Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
@@ -189,6 +192,10 @@ let g:markdown_folding=11
   nnoremap <leader>ev :tabnew $MYVIMRC<cr>       " edit vimrc
   nnoremap <leader>rv :source $MYVIMRC<cr>       " reload vimrv
 
+" fzf Configs
+  " nnoremap <leader>f :Files<CR> " shortcut to find files
+
+
 " NERDTree Configs
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -216,10 +223,11 @@ let g:markdown_folding=11
 		\ 'coc-css',
 		\ 'coc-html',
 		\ 'coc-java',
-		\ 'coc-jedi',
 		\ 'coc-json',
-		\ 'coc-python',
+		\ 'coc-jedi',
 		\ 'coc-prettier',
+		\ 'coc-pyright',
+		\ 'coc-python',
 		\ 'coc-snippets',
 		\ 'coc-todolist',
 		\ 'coc-vimlsp',
@@ -227,6 +235,7 @@ let g:markdown_folding=11
 
 		" \ 'coc-word',
 		" \ 'coc-markdownlint',
+		" \ 'coc-python', "deprecated
 		" \ 'coc-emoji',
 		" \ 'coc-yank',
 
@@ -252,6 +261,12 @@ let g:markdown_folding=11
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+" coc-vimlsp Configs
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'help'
+      \]
+
 " vim-multiple-cursor Configs
   let g:multi_cursor_start_word_key      = '<C-n>'
   let g:multi_cursor_select_all_word_key = '<A-n>'
@@ -264,7 +279,7 @@ let g:markdown_folding=11
 
 " lightline Configs
   let g:lightline = {
-		     \ 'colorscheme': 'solarized',
+		   \ 'colorscheme': 'solarized',
 		   \ 'active': {
 		   \   'left': [ [ 'mode', 'paste' ],
 		   \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
@@ -274,6 +289,7 @@ let g:markdown_folding=11
 		   \ },
 	       \ }
 
+			  " \ 'colorscheme': 'solarized',
 
 " vim-gitgutter Configs
  " let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
