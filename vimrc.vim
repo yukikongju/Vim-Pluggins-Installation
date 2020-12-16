@@ -37,7 +37,7 @@
   " Plug 'ycm-core/YouCompleteMe' "you complete me autocomplete with linter"
   " Plug 'davidhalter/jedi' " Python autocomplete
   Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
-  Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
+  " Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
   Plug 'tpope/vim-repeat' " can use . with other plugins
   Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
   Plug 'vim-scripts/c.vim' " c/c++ ide 
@@ -97,6 +97,9 @@
   set nowritebackup
   set noswapfile
 
+" Keybing for date
+  map <leader>d :r! date +"\%A \%d \%B \%Y" <CR>
+
 " File Stats
   set ruler
   set confirm
@@ -123,7 +126,7 @@
   set foldmethod=syntax
   set foldlevelstart=1
   set foldnestmax=2
-let g:markdown_folding=11
+  let g:markdown_folding=11
 
 " Buffers
   set hidden
@@ -342,6 +345,7 @@ let g:markdown_fenced_languages = [
   " let g:vimwiki_folding='syntax' "list, '', expr, syntax, 
   let g:vimwiki_folding='expr' "list, '', expr, syntax, 
   let g:vimwiki_list = [{'auto_diary_index': 1}] " autocomplete diary index
+  " let wiki_1.diary_rel_path = '.'
   " nnoremap  <leader>w<leader>w " create new diary note for the day
   " nnoremap  <leader>wi " show all diary entries
   " nnoremap  <leader>w<leader>i " update entries
