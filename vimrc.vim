@@ -12,8 +12,9 @@
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
   Plug 'lfos/calcurse' "Calendar scheduling app
   Plug 'honza/vim-snippets' " snippets for various languages
-  " Plug 'vifm/vifm' " File mange with curses interface
+  Plug 'vifm/vifm' " File mange with curses interface
   " Plug 'christoomey/vim-tmux-navigator' 
+  " Plug 'blindFS/vim-taskwarrior' " taskwarrior task manager
   Plug 'itchyny/calendar.vim' " calendar
   Plug 'junegunn/fzf' " command line fuzzy finder"
   Plug 'junegunn/goyo.vim' " make vim cleaner
@@ -51,8 +52,6 @@
 " html
   Plug 'alvan/vim-closetag' " use > to create closing tag
 
-
-
   call plug#end()
 
 " Syntax
@@ -84,6 +83,7 @@
   " set smartindent
   set autoindent
   set noshiftround
+  " map <leader>ai gg=G<CR>			" indent whole file with gg=G
 
 " Spelling
   " set spell
@@ -98,7 +98,8 @@
   set noswapfile
 
 " Keybing for date
-  map <leader>d :r! date +"\%A \%d \%B \%Y" <CR>
+  " map <leader>d :r! date +"\%A \%d \%B \%Y" <CR>
+  map <F2> :r! date +"\%A \%d \%B \%Y" <CR>
 
 " File Stats
   set ruler
@@ -143,7 +144,7 @@
   set showmatch
   " map <leader><space> :let @/=''<cr> " clear search
   " nnoremap <leader><space> :noh<cr>
-  nnoremap <esc><esc> :noh<return>
+  nnoremap <esc><esc> :noh<return><CR>
 
 " Colorscheme
   syntax enable
@@ -161,6 +162,7 @@
 
 " Choose Leader
   let mapleader="," "choose leader
+  " let mapleader=" " "choose leader
 
 " Remap vertical move
   nnoremap j gj
@@ -344,7 +346,9 @@ let g:markdown_fenced_languages = [
 " vim wiki
   " let g:vimwiki_folding='syntax' "list, '', expr, syntax, 
   let g:vimwiki_folding='expr' "list, '', expr, syntax, 
-  let g:vimwiki_list = [{'auto_diary_index': 1}] " autocomplete diary index
+  
+  " let g:vimwiki_use_calendar = 1
+  " let g:vimwiki_list = [{'auto_diary_index': 1}] " autocomplete diary index
   " let wiki_1.diary_rel_path = '.'
   " nnoremap  <leader>w<leader>w " create new diary note for the day
   " nnoremap  <leader>wi " show all diary entries
@@ -357,7 +361,7 @@ let g:markdown_fenced_languages = [
   "                     \ 'syntax': 'markdown', 'ext': '.wiki'}]
 
 " vim.calendar
-  " let g:calendar_task_delete = 1
+  let g:calendar_task_delete = 1
 
 " TagList options
   " let Tlist_Close_On_Select = 1 "close taglist window once we selected something
