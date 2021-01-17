@@ -17,7 +17,7 @@
   " Plug 'blindFS/vim-taskwarrior' " taskwarrior task manager
   Plug 'itchyny/calendar.vim' " calendar
   Plug 'junegunn/fzf' " command line fuzzy finder"
-  Plug 'junegunn/goyo.vim' " make vim cleaner
+  " Plug 'junegunn/goyo.vim' " make vim cleaner
   " Plug 'taglist.vim' " view variables, functions with :Tlist
   Plug 'mbbill/undotree' " view all undo history
   " Plug 'vim-scripts/taglist.vim'
@@ -37,12 +37,17 @@
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
   " Plug 'ycm-core/YouCompleteMe' "you complete me autocomplete with linter"
   " Plug 'davidhalter/jedi' " Python autocomplete
-  Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
+  " Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
   " Plug 'tpope/vim-surround' " add tags, brackets, ... around selected lines
   Plug 'tpope/vim-repeat' " can use . with other plugins
-  Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
+  " Plug 'vim-scripts/ClosePairs' " automatically close (),[],{},'', 
+  Plug 'jiangmiao/auto-pairs' " insert and delete brackets in pairs
   Plug 'vim-scripts/c.vim' " c/c++ ide 
   " Plug 'rust-lang/rust.vim' " Rust autocompletion
+
+" debugger
+  " Plug 'puremourning/vimspector' "Debugger
+  " Plug 'szw/vim-maximizer' "another debugger
 
 " git
   Plug 'tpope/vim-fugitive' "generate page to view commit message
@@ -74,7 +79,7 @@
 
 " Indentation 
   set wrap							" Display long lines as several
-  set textwidth=79
+  " set textwidth=79
   set formatoptions=tcqrn1
   set tabstop=4
   set shiftwidth=2
@@ -83,13 +88,13 @@
   " set smartindent
   set autoindent
   set noshiftround
-  " map <leader>ai gg=G<CR>			" indent whole file with gg=G
+  map <leader>q gg=G<CR>			" indent whole file with gg=G
 
 " Spelling
   " set spell
   " set spelllang=eng
 
-" activate Mouse
+" Mouse
   " set mouse=a
 
 " Swapfiles
@@ -97,8 +102,7 @@
   set nowritebackup
   set noswapfile
 
-" Keybing for date
-  " map <leader>d :r! date +"\%A \%d \%B \%Y" <CR>
+" Keybinding for date
   map <F2> :r! date +"\%A \%d \%B \%Y" <CR>
 
 " File Stats
@@ -114,7 +118,6 @@
   set showcmd
   set wildmenu
   set nostartofline
-  " set signcolumn=no
   set signcolumn=yes
 
 " Rendering
@@ -142,9 +145,8 @@
   set ignorecase
   set smartcase
   set showmatch
-  " map <leader><space> :let @/=''<cr> " clear search
-  " nnoremap <leader><space> :noh<cr>
-  nnoremap <esc><esc> :noh<return><CR>
+  " nnoremap <esc><esc> :noh<return><CR>
+  nnoremap <esc><esc> :noh<CR>
 
 " Colorscheme
   syntax enable
@@ -156,13 +158,11 @@
   colorscheme gruvbox
   " highlight Normal ctermbg=NONE
   " highlight nonText ctermbg=NONE
-  " colorscheme delek
   " let g:solarized_contrast = 'normal'
   " let g:solarized_degrade = 0
 
 " Choose Leader
   let mapleader="," "choose leader
-  " let mapleader=" " "choose leader
 
 " Remap vertical move
   nnoremap j gj
@@ -173,7 +173,7 @@
   nnoremap E $
 
 " Remap Save Session
-  nnoremap <leader>s :mksession<CR>
+  nnoremap <leader>s :mksession<CR>			" we can save session with mks!
 
 " remap change windows split quickly
   nmap <leader>h :wincmd h<CR>
@@ -182,16 +182,18 @@
   nmap <leader>l :wincmd l<CR>
   nnoremap <silent> <leader>+ :vertical resize +5<CR>
   nnoremap <silent> <leader>- :vertical resize +5<CR>
-  " nmap <leader>u :UndotreeShow<CR>
 
 " remap tabs change
   nmap gt :tabnext<CR>
   nmap gT :tabprevious<CR>
-  " nmap nt :tabnew<CR>
+  nmap <leader>nt :tabe<CR>				" create new tab
 
 "  remapping replace
   " nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>    " local replace
   " nnoremap gR gD:%s/<C-R>///gc<left><left><left>        " For global replace
+
+" Abbreviations for JAVA
+  " abbr psvm public static void main(String[] args){<CR>}<esc>O
 
 " vimrc shortcut
   nnoremap <leader>ev :tabnew $MYVIMRC<cr>       " edit vimrc
@@ -225,10 +227,7 @@
   let g:coc_global_extensions = [
 		\ 'coc-clangd',
 		\ 'coc-cmake',
-		\ 'coc-css',
-		\ 'coc-html',
 		\ 'coc-java',
-		\ 'coc-json',
 		\ 'coc-jedi',
 		\ 'coc-prettier',
 		\ 'coc-pyright',
@@ -240,6 +239,9 @@
 
 		" \ 'coc-word',
 		" \ 'coc-markdownlint',
+		" \ 'coc-json',
+		" \ 'coc-css',
+		" \ 'coc-html',
 		" \ 'coc-python', "deprecated
 		" \ 'coc-emoji',
 		" \ 'coc-yank',
@@ -281,6 +283,29 @@ let g:markdown_fenced_languages = [
   let g:multi_cursor_prev_key            = '<C-p>'
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
+
+" Debugger remaps
+  " nnoremap <leader>m :MaximizerToggle!<CR>
+  nnoremap <leader>dd :call vimspector#Launch()<CR>
+  nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+  nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+  nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+  nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+  nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+  nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+  nnoremap <leader>de :call vimspector#Reset()<CR>
+
+  nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+
+  nmap <leader>dl <Plug>VimspectorStepInto
+  nmap <leader>dj <Plug>VimspectorStepOver
+  nmap <leader>dk <Plug>VimspectorStepOut
+  nmap <leader>d_ <Plug>VimspectorRestart
+  nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+  nmap <leader>drc <Plug>VimspectorRunToCursor
+  nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+  nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 
 " lightline Configs
   let g:lightline = {
@@ -378,4 +403,3 @@ let g:markdown_fenced_languages = [
   " nnoremap <F5> :TlistToggle
   " nnoremap <F6> :TlistShowPrototype
 
-  " set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
