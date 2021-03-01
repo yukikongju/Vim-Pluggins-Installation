@@ -11,7 +11,8 @@
   Plug 'scrooloose/nerdtree'
   Plug 'vimwiki/vimwiki' " create linked text files and auto number
   Plug 'lfos/calcurse' "Calendar scheduling app
-  Plug 'honza/vim-snippets' " snippets for various languages
+  " Plug 'honza/vim-snippets' " snippets for various languages
+  " Plug 'SirVer/ultisnips' " Ultimate snippet solution for vim
   Plug 'vifm/vifm' " File mange with curses interface
   " Plug 'christoomey/vim-tmux-navigator' 
   " Plug 'blindFS/vim-taskwarrior' " taskwarrior task manager
@@ -35,6 +36,8 @@
 
 " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocomplete for all
+  " Plug 'pappasam/coc-jedi' " Python autocomplete
+  " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
   " Plug 'ycm-core/YouCompleteMe' "you complete me autocomplete with linter"
   " Plug 'davidhalter/jedi' " Python autocomplete
   " Plug 'mattn/emmet-vim' " autocomplete for HTML, CSS, JS
@@ -81,14 +84,15 @@
   set wrap							" Display long lines as several
   " set textwidth=79
   set formatoptions=tcqrn1
-  set tabstop=4
-  set shiftwidth=2
-  set softtabstop=4
+  " set tabstop=4
+  " set shiftwidth=2
+  set shiftwidth=4
+  " set softtabstop=4
   set smarttab
   " set smartindent
   set autoindent
   set noshiftround
-  map <leader>q gg=G<CR>			" indent whole file with gg=G
+  map <leader>r gg=G<CR>			" indent whole file with gg=G
 
 " Spelling
   " set spell
@@ -232,7 +236,6 @@
 		\ 'coc-prettier',
 		\ 'coc-pyright',
 		\ 'coc-python',
-		\ 'coc-snippets',
 		\ 'coc-todolist',
 		\ 'coc-vimlsp',
 		\ ]
@@ -240,6 +243,7 @@
 		" \ 'coc-word',
 		" \ 'coc-markdownlint',
 		" \ 'coc-json',
+		" \ 'coc-snippets',
 		" \ 'coc-css',
 		" \ 'coc-html',
 		" \ 'coc-python', "deprecated
@@ -320,6 +324,12 @@ let g:markdown_fenced_languages = [
 	       \ }
 
 			  " \ 'colorscheme': 'solarized',
+
+" UltiSnippets Configs
+" let g:UltiSnipsExpandTrigger="<c-d>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your window.
 
 " vim-gitgutter Configs
  " let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
