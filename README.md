@@ -23,7 +23,7 @@ Follow step at: https://www.vim.org/download.php
 
 ## Basic Vim
 
-TLDR: 
+TLDR:
 
 - Movements
 - Screen
@@ -49,12 +49,13 @@ In your home directory, do
 ```
 vim .vimrc
 ```
+
 Step 3: Edit the .vimrc file
 
 Add Plugin inside plug#begin() and plug#end()
 
 ```
- plug#begin() 
+ plug#begin()
 
 	 Plug 'scrooloose/nerdtree' " show folders on the side
 	 Plug 'altercation/vim-colors-solarized' " colorscheme for text
@@ -75,19 +76,22 @@ In vim, execute:
 :PlugInstall
 ```
 
-### More Pluggins
+## Setting Up Autocomplete
 
 1. PyDiction: http://rkulla.github.io/pydiction/
-2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
+2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s
 3. Intellident Completion Coc: https://kimpers.com/vim-intelligent-autocompletion/
-
 
 ## Managing Dotfiles
 
-Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
+- Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
 
-Creating a symbolic link to your new file location:
+- Creating a symbolic link to your new file location:
 https://superuser.com/questions/327792/how-to-change-the-default-location-of-vimrc-to-inside-vim
+
+- Fireship Dotfiles Management: https://www.youtube.com/watch?v=r_MpUP6aKiQ&t=510s
+- Creating Symbolic Links: https://github.community/t/git-bash-symbolic-links-on-windows/522/9
+
 
 ## Installing tmux
 
@@ -96,7 +100,7 @@ Getting Started with tmux: https://linuxize.com/post/getting-started-with-tmux/
 
 ## Todos
 
-- [ ] Autocomplete for python/java
+- [r] Autocomplete for python/java
 - [ ] Snippets for python/java
 - [ ] Debugger
 
