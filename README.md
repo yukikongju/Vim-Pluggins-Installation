@@ -52,6 +52,7 @@ In vim, execute:
 2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
 3. Intellident Completion Coc: https://kimpers.com/vim-intelligent-autocompletion/
 
+
 ## Managing Dotfiles
 
 Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
@@ -59,4 +60,8 @@ Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow
 Creating a symbolic link to your new file location:
 https://superuser.com/questions/327792/how-to-change-the-default-location-of-vimrc-to-inside-vim
 
+## Installing tmux
+
+Installing chocolatey package manager: https://ourcodeworld.com/articles/read/530/chocolatey-cli-a-yum-or-apt-get-but-for-windows
+Getting Started with tmux: https://linuxize.com/post/getting-started-with-tmux/
 
