@@ -11,6 +11,7 @@ Getting started with vim
 5. [Setting up your autocomplete](#autocomplete)
 6. [Setting up snippets](#snippets)
 7. [Managing dotfiles](#dotfiles)
+8. [Todos](#todos)
 
 ## Motivation
 
@@ -86,6 +87,12 @@ Dotfiles Architecture: http://brandon.invergo.net/news/2012-05-26-using-gnu-stow
 
 Creating a symbolic link to your new file location:
 https://superuser.com/questions/327792/how-to-change-the-default-location-of-vimrc-to-inside-vim
+
+## Todos
+
+- [ ] Autocomplete for python/java
+- [ ] Snippets for python/java
+- [ ] Debugger
 
 ## Python modules installation
 
