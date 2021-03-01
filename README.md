@@ -1,8 +1,37 @@
-## Initializing vimrc file 
+# Vim Plugins Installation
 
-### 1. Install Vim: https://www.vim.org/download.php
+Getting started with vim
 
-### 2. Install plug-vim for a to make plugins installation simpler
+## Table of contents
+
+1. [Motivation](#motivation)
+2. [Downloading Vim](#download-vim)
+3. [Basics Vim](#basics-vim)
+4. [Setting up your vimrc file](#setup-vimrc)
+5. [Setting up your autocomplete](#autocomplete)
+6. [Setting up snippets](#snippets)
+7. [Managing dotfiles](#dotfiles)
+8. [Todos](#todos)
+
+## Motivation
+
+Why use vim
+
+## Downloading Vim
+
+Follow step at: https://www.vim.org/download.php
+
+## Basic Vim
+
+TLDR: 
+
+- Movements
+- Screen
+- Buffer
+
+### Setting Up your .vimrc file
+
+Step 1: Install plug-vim for a to make plugins installation simpler
 
 For Unix:
 
@@ -13,14 +42,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 More information: https://github.com/junegunn/vim-plug
 
-### 3. Initialize .vimrc file. This is where you will customize your vim
+Step 2. Initialize .vimrc file. This is where you will customize your vim
 
 In your home directory, do
 
 ```
 vim .vimrc
 ```
-### 4. Edit the .vimrc file
+Step 3: Edit the .vimrc file
 
 Add Plugin inside plug#begin() and plug#end()
 
@@ -38,7 +67,7 @@ Add Plugin inside plug#begin() and plug#end()
 
  plug#end()
 ```
-### 5. Install Plugins
+Step 4: Install Plugins
 
 In vim, execute:
 
@@ -46,7 +75,7 @@ In vim, execute:
 :PlugInstall
 ```
 
-# Installing Some Pluggins
+### More Pluggins
 
 1. PyDiction: http://rkulla.github.io/pydiction/
 2. Configuring Vim like VSCode (autocompletion) by Ben Awad:https://www.youtube.com/watch?v=gnupOrSEikQ&t=1095s 
@@ -65,3 +94,12 @@ https://superuser.com/questions/327792/how-to-change-the-default-location-of-vim
 Installing chocolatey package manager: https://ourcodeworld.com/articles/read/530/chocolatey-cli-a-yum-or-apt-get-but-for-windows
 Getting Started with tmux: https://linuxize.com/post/getting-started-with-tmux/
 
+## Todos
+
+- [ ] Autocomplete for python/java
+- [ ] Snippets for python/java
+- [ ] Debugger
+
+## Python modules installation
+
+`` pip install <module> --user ``
